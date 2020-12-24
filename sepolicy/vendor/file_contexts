@@ -23,6 +23,9 @@
 /sys/devices/platform/soc/[a-z0-9]+.qcom,mdss_mdp/drm/card([0-3])+/card([0-3])+-DSI-1/smart_fps_value         u:object_r:vendor_sysfs_graphics:s0
 /sys/devices/platform/soc/[a-z0-9]+.qcom,mdss_mdp/drm/card([0-3])+/card([0-3])+-DSI-1/thermal_hbm_disabled    u:object_r:vendor_sysfs_graphics:s0
 
+# Fastcharge HAL
+/(vendor|system/vendor)/bin/hw/vendor\.lineage\.fastcharge@[0-9]\.[0-9]-service\.xiaomi_apollo          u:object_r:hal_lineage_fastcharge_default_exec:s0
+
 # Fingerprint
 /vendor/bin/hw/android\.hardware\.biometrics\.fingerprint-service\.xiaomi                           u:object_r:hal_fingerprint_default_exec:s0
 
