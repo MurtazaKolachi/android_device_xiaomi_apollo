@@ -249,6 +249,10 @@ PRODUCT_PACKAGES += \
 # Miui Camera
 include device/xiaomi/camera/miuicamera.mk
 
+# Miui Camera STLicense
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/camera/st_license.lic:$(TARGET_COPY_OUT_VENDOR)/etc/camera/st_license.lic
+
 # NFC
 PRODUCT_PACKAGES += \
     android.hardware.nfc-service.nxp \
