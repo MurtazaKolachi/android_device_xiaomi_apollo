@@ -10,6 +10,7 @@ static const variant_info apollo_global_info = {
     .hwc_value = "",
     .sku_value = "std",
 
+    .mod_device = "apollo_global",
     .brand = "Xiaomi",
     .device = "apollo",
     .marketname = "Mi 10T",
@@ -23,6 +24,7 @@ static const variant_info apollopro_info = {
     .hwc_value = "",
     .sku_value = "pro",
 
+    .mod_device = "apollopro_global",
     .brand = "Xiaomi",
     .device = "apollo",
     .marketname = "Mi 10T Pro",
@@ -36,6 +38,7 @@ static const variant_info apollo_info = {
     .hwc_value = "",
     .sku_value = "",
 
+    .mod_device = "apollo",
     .brand = "Redmi",
     .device = "apollo",
     .marketname = "Redmi K30S Ultra",
