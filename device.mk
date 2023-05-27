@@ -246,6 +246,9 @@ PRODUCT_PACKAGES += \
     media_codecs_performance_kona.xml \
     video_system_specs.json
 
+# Miui Camera
+include device/xiaomi/camera/miuicamera.mk
+
 # NFC
 PRODUCT_PACKAGES += \
     android.hardware.nfc-service.nxp \
