@@ -76,8 +76,6 @@ blob_fixups: blob_fixups_user_type = {
         .replace_needed('libcodec2_hidl@1.0.so', 'libcodec2_hidl@1.0_sp.so')
         .replace_needed('libcodec2_vndk.so', 'libcodec2_vndk_sp.so'),
     (
-        'odm/lib64/libcodec2_hidl_plugin_sp.so',
-        'odm/lib64/libcodec2_soft_common_sp.so',
         'odm/lib64/libcodec2_store_dolby_sp.so',
     ): blob_fixup()
         .replace_needed('libcodec2_vndk.so', 'libcodec2_vndk_sp.so'),
@@ -86,12 +84,27 @@ blob_fixups: blob_fixups_user_type = {
         'odm/lib64/libcodec2_soft_ddpdec_sp.so',
     ): blob_fixup()
         .replace_needed('libcodec2_vndk.so', 'libcodec2_vndk_sp.so')
-        .replace_needed('libcodec2_soft_common.so', 'libcodec2_soft_common_sp.so'),
+        .replace_needed('libcodec2_soft_common.so', 'libcodec2_soft_common_sp.so')
+        .replace_needed('libstagefright_foundation.so', 'libstagefright_foundation-v33.so'),
     'odm/lib64/libcodec2_vndk_sp.so': blob_fixup()
-        .replace_needed('libui.so', 'libui_sp.so'),
+        .replace_needed('libui.so', 'libui_sp.so')
+        .replace_needed('libstagefright_foundation.so', 'libstagefright_foundation-v33.so'),
     'odm/lib64/libcodec2_hidl@1.0_sp.so': blob_fixup()
         .replace_needed('libcodec2_hidl_plugin.so', 'libcodec2_hidl_plugin_sp.so')
         .replace_needed('libcodec2_vndk.so', 'libcodec2_vndk_sp.so'),
+    (
+        'odm/lib64/libcodec2_hidl_plugin_sp.so',
+        'odm/lib64/libcodec2_soft_common_sp.so',
+    ): blob_fixup()
+        .replace_needed('libcodec2_vndk.so', 'libcodec2_vndk_sp.so')
+        .replace_needed('libstagefright_foundation.so', 'libstagefright_foundation-v33.so'),
+    (
+        'odm/lib/libdlbdsservice_v3_6.so',
+        'odm/lib/libstagefright_soft_ddpdec.so',
+        'odm/lib64/libdlbdsservice_sp.so',
+        'odm/lib64/libdlbdsservice_v3_6.so',
+    ): blob_fixup()
+        .replace_needed('libstagefright_foundation.so', 'libstagefright_foundation-v33.so'),
     'odm/lib64/libui_sp.so': blob_fixup()
         .replace_needed('android.hardware.graphics.common-V3-ndk.so', 'android.hardware.graphics.common-V5-ndk.so')
         .replace_needed('android.hardware.graphics.allocator-V1-ndk.so', 'android.hardware.graphics.allocator-V2-ndk.so'),
