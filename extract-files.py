@@ -48,8 +48,6 @@ blob_fixups: blob_fixups_user_type = {
         .clear_symbol_version('AHardwareBuffer_lock')
         .clear_symbol_version('AHardwareBuffer_release')
         .clear_symbol_version('AHardwareBuffer_unlock'),
-    'vendor/lib64/vendor.qti.hardware.camera.postproc@1.0-service-impl.so': blob_fixup()
-        .binary_regex_replace(b'\x9A\x0A\x00\x94', b'\x1F\x20\x03\xD5'),
     'system_ext/lib64/libwfdmmsrc_system.so': blob_fixup()
         .add_needed('libgui_shim.so'),
     'system_ext/lib64/libwfdnative.so': blob_fixup()
