@@ -48,6 +48,9 @@ TARGET_NO_BOOTLOADER := true
 # Camera - HIDL overrideFormat
 TARGET_CAMERA_USES_NEWER_HIDL_OVERRIDE_FORMAT = true
 
+# Camera Malloc
+MALLOC_SVELTE_FOR_LIBC32 := true
+
 # Camera - Miui
 TARGET_CAMERA_PACKAGE_NAME := com.android.camera
 
