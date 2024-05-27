@@ -55,6 +55,9 @@ MALLOC_SVELTE_FOR_LIBC32 := true
 # Camera - HIDL overrideFormat
 TARGET_CAMERA_USES_NEWER_HIDL_OVERRIDE_FORMAT = true
 
+TARGET_CAMERA_SERVICE_EXT_LIB := //$(DEVICE_PATH):libcameraservice_extension.sm8250
+$(call soong_config_set,libcameraservice,ext_lib,//$(DEVICE_PATH):libcameraservice_extension.sm8250)
+
 # Display
 BOARD_USES_ADRENO := true
 TARGET_ADDITIONAL_GRALLOC_10_USAGE_BITS := 0x546C00000000
