@@ -1,8 +1,0 @@
--keep class org.lineageos.settings.* {
-  *;
-}
-
--keep class org.lineageos.settings.refreshrate.* {
-  *;
-}
-
