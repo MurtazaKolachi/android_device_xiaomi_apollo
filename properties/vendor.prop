@@ -310,6 +310,7 @@ ro.com.android.dataroaming=true
 ro.telephony.default_network=33,33
 
 # USB
+ro.usb.uvc.enabled=true
 sys.usb.mtp.batchcancel=1
 vendor.usb.diag.func.name=diag
 vendor.usb.dpl.inst.name=dpl
