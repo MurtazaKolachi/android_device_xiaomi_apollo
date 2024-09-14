@@ -317,6 +317,9 @@ PRODUCT_PACKAGES += \
     android.hardware.thermal-service.qti
 endif
 
+# Update
+AB_OTA_UPDATER := false
+
 # USB
 PRODUCT_PACKAGES += \
     android.hardware.usb-service.qti \
