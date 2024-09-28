@@ -264,6 +264,7 @@ persist.vendor.qcomsysd.enabled=1
 
 # Radio
 persist.radio.multisim.config=dsds
+persist.radio.VT_HYBRID_ENABLE=1
 persist.rcs.supported=0
 persist.vendor.data.mode=concurrent
 persist.vendor.radio.apm_sim_not_pwdn=1
@@ -306,6 +307,13 @@ sys.vendor.shutdown.waittime=500
 
 # Subsystem Restart
 persist.vendor.ssr.restart_level=ALL_ENABLE
+
+# Telephony
+persist.dbg.volte_avail_ovr=1
+persist.dbg.vt_avail_ovr=1
+persist.dbg.wfc_avail_ovr=1
+ro.com.android.dataroaming=true
+ro.telephony.default_network=33,33
 
 # USB
 sys.usb.mtp.batchcancel=1
