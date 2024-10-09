@@ -117,7 +117,6 @@ BOARD_QTI_DYNAMIC_PARTITIONS_PARTITION_LIST := $(ALL_PARTITIONS)
 BOARD_QTI_DYNAMIC_PARTITIONS_SIZE := 9122611200 # (BOARD_SUPER_PARTITION_SIZE - 4MiB)
 
 # Partitions - reserved size
--include vendor/lineage/config/BoardConfigReservedSize.mk
 BOARD_VENDORIMAGE_PARTITION_RESERVED_SIZE := 104857600
 
 # Platform
@@ -192,6 +191,11 @@ WIFI_HIDL_UNIFIED_SUPPLICANT_SERVICE_RC_ENTRY := true
 WPA_SUPPLICANT_VERSION := VER_0_8_X
 
 CONFIG_IEEE80211AX := true
+
+# Build Enviroment
+BUILD_USERNAME := Murtaza
+BUILD_HOSTNAME := Eclipse
+TZ := Asia/Karachi
 
 # Inherit the proprietary files
 include vendor/xiaomi/apollo/BoardConfigVendor.mk
