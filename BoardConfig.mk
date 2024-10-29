@@ -83,6 +83,10 @@ override KERNEL_TOOLCHAIN_PREFIX_arm := arm-linux-android-
 # OTA assert
 TARGET_OTA_ASSERT_DEVICE := apollo,apollopro
 
+# Kernel Clang Flags
+KERNEL_CC := CC=clang
+override KERNEL_TOOLCHAIN_PREFIX_arm := arm-linux-android-
+
 # Partitions
 BOARD_FLASH_BLOCK_SIZE := 262144 # (BOARD_KERNEL_PAGESIZE * 64)
 BOARD_BOOTIMAGE_PARTITION_SIZE := 134217728
