@@ -338,6 +338,8 @@
         </MediaCodec>
         <!-- TODO: parameters are copied from kona omx -->
     </Decoders>
+        <!-- Include Dolby Audio MediaCodecs -->
+    <Include href="media_codecs_dolby_audio.xml" />
     <Encoders>
         <!-- C2 encoders -->
         <MediaCodec name="c2.qti.avc.encoder" type="video/avc">
