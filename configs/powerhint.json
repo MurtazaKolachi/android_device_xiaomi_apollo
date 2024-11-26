@@ -217,7 +217,7 @@
       "Values": [
         "7980",
         "6881",
-        "2597",
+        "3879",
         "762"
       ],
       "ResetOnInit": true
@@ -400,7 +400,7 @@
       "PowerHint": "INTERACTION",
       "Node": "LLCCBWMinFreq",
       "Duration": 0,
-      "Value": "2597"
+      "Value": "3879"
     },
     {
       "PowerHint": "LAUNCH",
