@@ -172,6 +172,7 @@ $(call soong_config_set,qtidisplay,gralloc_handle_has_reserved_size,true)
 
 # Dolby
 PRODUCT_PACKAGES += \
+    DSPVolumeSynchronizer \
     XiaomiDolby
 
 # DRM
