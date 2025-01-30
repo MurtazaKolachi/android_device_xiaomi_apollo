@@ -1,0 +1,2 @@
+allow system_app zygote:unix_stream_socket getopt;
+allow system_app user_profile_data_file:dir read;
