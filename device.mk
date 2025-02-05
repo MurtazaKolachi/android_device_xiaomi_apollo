@@ -219,6 +219,7 @@ endif
 # Media configs
 PRODUCT_PACKAGES += \
     media_codecs_c2.xml \
+    media_codecs_c2_dolby_audio.xml \
     media_codecs_performance_c2.xml \
     video_system_specs.json
 
