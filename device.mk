@@ -423,5 +423,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_BOOT_JARS += \
     WfdCommon
 
+# ViPER4Android FX
+$(call inherit-product, packages/apps/ViPER4AndroidFX/config.mk)
+
 # Inherit the proprietary files
 $(call inherit-product, vendor/xiaomi/apollo/apollo-vendor.mk)
