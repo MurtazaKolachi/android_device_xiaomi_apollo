@@ -127,6 +127,7 @@ TARGET_BUILD_DEVICE_AS_WEBCAM := true
 # Device-specific settings
 PRODUCT_PACKAGES += \
     XiaomiDolby \
+    XiaomiDolbyResCommon \
     XiaomiParts
 
 # Display
