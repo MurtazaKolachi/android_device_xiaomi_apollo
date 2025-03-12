@@ -66,6 +66,13 @@ prebuilt_etc {
 }
 
 prebuilt_etc {
+     name: "init.apollo.rc",
+     src: "etc/init.apollo.rc",
+     sub_dir: "init",
+     vendor: true,
+ }
+
+prebuilt_etc {
     name: "init.recovery.qcom.rc",
     src: "etc/init.recovery.qcom.rc",
     sub_dir: "init",
