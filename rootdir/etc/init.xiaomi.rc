@@ -39,6 +39,11 @@ on boot
     chmod 0700 /sys/bus/platform/devices/soc:fingerprint_fpc/request_vreg
     chmod 0700 /sys/bus/platform/devices/soc:fingerprint_fpc/power_cfg
 
+    chown system graphics /sys/class/drm/sde-crtc-0/measured_fps
+    chmod 0660 /sys/class/drm/sde-crtc-0/measured_fps
+    chown system system /sys/class/power_supply/battery/temp
+    chmod 0660 /sys/class/power_supply/battery/temp
+
 on post-fs-data
     mkdir /data/vendor/fortsense 0770 system system
     mkdir /data/vendor/fpc 0770 system system
