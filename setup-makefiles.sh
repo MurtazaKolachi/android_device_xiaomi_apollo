@@ -16,6 +16,8 @@ if [[ ! -d "${MY_DIR}" ]]; then MY_DIR="${PWD}"; fi
 
 ANDROID_ROOT="${MY_DIR}/../../.."
 
+export TARGET_ENABLE_CHECKELF=true
+
 HELPER="${ANDROID_ROOT}/tools/extract-utils/extract_utils.sh"
 if [ ! -f "${HELPER}" ]; then
     echo "Unable to find helper script at ${HELPER}"
@@ -43,15 +45,14 @@ function lib_to_package_fixup_vendor_variants() {
 
     case "$1" in
         com.qualcomm.qti.dpm.api@1.0 | \
-            libmegface | \
             libmmosal | \
+	    libmegface | \
             vendor.qti.hardware.wifidisplaysession@1.0 | \
             vendor.qti.imsrtpservice@3.0)
             echo "${1}_vendor"
             ;;
         libOmxCore | \
             libgrallocutils | \
-            libwfdaac_vendor | \
             libwpa_client) ;;
         *)
             return 1

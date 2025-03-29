@@ -1,0 +1,29 @@
+//
+// Copyright (C) 2024 The LineageOS Project
+//
+// SPDX-License-Identifier: Apache-2.0
+//
+
+prebuilt_etc {
+    name: "media_codecs_c2.xml",
+    src: "media_codecs_c2.xml",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "media_codecs_c2_dolby_audio.xml",
+    src: "media_codecs_c2_dolby_audio.xml",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "media_codecs_performance_c2.xml",
+    src: "media_codecs_performance_c2.xml",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "video_system_specs.json",
+    src: "video_system_specs.json",
+    vendor: true,
+}

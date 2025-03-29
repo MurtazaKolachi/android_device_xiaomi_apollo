@@ -63,9 +63,9 @@
 -->
 
 <Included>
-    <Include href="media_codecs_google_audio.xml" />
-    <Include href="media_codecs_google_telephony.xml" />
+    <Include href="media_codecs_c2_dolby_audio.xml" />
     <Settings>
+        <Domain name="telephony" enabled="true" />
         <Setting name="max-video-encoder-input-buffers" value="11" />
     </Settings>
     <Decoders>
@@ -83,6 +83,7 @@
             <Limit name="performance-point-1920x1080" value="240" />
             <Limit name="performance-point-1280x720" value="480" />
             <Feature name="adaptive-playback" />
+            <Feature name="can-swap-width-height" value="1" />
         </MediaCodec>
         <MediaCodec name="c2.qti.avc.decoder.secure" type="video/avc" >
             <Limit name="size" min="128x128" max="4096x2160" />
@@ -93,7 +94,8 @@
             <Limit name="frame-rate" range="1-240" />
             <Feature name="adaptive-playback" />
             <Feature name="secure-playback" required="true" />
-            <Limit name="concurrent-instances" max="3" />
+            <Feature name="can-swap-width-height" value="1" />
+            <Limit name="concurrent-instances" max="4" />
             <Limit name="performance-point-4096x2304" value="30" />
             <Limit name="performance-point-3840x2160" value="60" />
         </MediaCodec>
@@ -105,6 +107,7 @@
             <Limit name="bitrate" range="1-120000000" />
             <Limit name="frame-rate" range="1-480" />
             <Feature name="adaptive-playback" />
+            <Feature name="can-swap-width-height" value="1" />
             <Limit name="concurrent-instances" max="16" />
             <Limit name="performance-point-4096x2304" value="30" />
             <Limit name="performance-point-3840x2160" value="60" />
@@ -120,7 +123,8 @@
             <Limit name="frame-rate" range="1-480" />
             <Feature name="adaptive-playback" />
             <Feature name="secure-playback" required="true" />
-            <Limit name="concurrent-instances" max="6" />
+            <Feature name="can-swap-width-height" value="1" />
+            <Limit name="concurrent-instances" max="4" />
             <Limit name="performance-point-4096x2304" value="30" />
             <Limit name="performance-point-3840x2160" value="60" />
         </MediaCodec>
@@ -132,6 +136,7 @@
             <Limit name="bitrate" range="1-120000000" />
             <Limit name="frame-rate" range="1-240" />
             <Feature name="adaptive-playback" />
+            <Feature name="can-swap-width-height" value="1" />
             <Limit name="concurrent-instances" max="16" />
             <Limit name="performance-point-4096x2304" value="24" />
             <Limit name="performance-point-3840x2160" value="30" />
@@ -146,6 +151,7 @@
             <Limit name="bitrate" range="1-120000000" />
             <Limit name="frame-rate" range="1-480" />
             <Feature name="adaptive-playback" />
+            <Feature name="can-swap-width-height" value="1" />
             <Limit name="concurrent-instances" max="6" />
             <Limit name="performance-point-4096x2304" value="30" />
             <Limit name="performance-point-3840x2160" value="60" />
@@ -161,7 +167,8 @@
             <Limit name="frame-rate" range="1-480" />
             <Feature name="adaptive-playback" />
             <Feature name="secure-playback" required="true" />
-            <Limit name="concurrent-instances" max="3" />
+            <Feature name="can-swap-width-height" value="1" />
+            <Limit name="concurrent-instances" max="4" />
             <Limit name="performance-point-4096x2304" value="30" />
             <Limit name="performance-point-3840x2160" value="60" />
         </MediaCodec>
@@ -174,6 +181,7 @@
             <Limit name="bitrate" range="1-40000000" />
             <Limit name="frame-rate" range="1-30" />
             <Feature name="adaptive-playback" />
+            <Feature name="can-swap-width-height" value="1" />
             <Limit name="concurrent-instances" max="16" />
             <Limit name="performance-point-1920x1080" value="30" />
         </MediaCodec>
@@ -345,6 +353,7 @@
             <Limit name="performance-point-1920x1080" value="240" />
             <Limit name="performance-point-1280x720" value="480" />
             <Limit name="concurrent-instances" max="16" />
+            <Feature name="can-swap-width-height" value="1" />
         </MediaCodec>
         <MediaCodec name="c2.qti.hevc.encoder" type="video/hevc">
             <Limit name="size" min="128x128" max="4096x2304" />
@@ -359,6 +368,7 @@
             <Limit name="performance-point-1920x1080" value="240" />
             <Limit name="performance-point-1280x720" value="480" />
             <Feature name="bitrate-modes" value="VBR,CBR" />
+            <Feature name="can-swap-width-height" value="1" />
         </MediaCodec>
         <MediaCodec name="c2.qti.hevc.encoder.cq" type="video/hevc" >
             <Alias name="OMX.qcom.video.encoder.hevc.cq"/>
@@ -369,7 +379,7 @@
             <Limit name="alignment" value="2x2" />
             <Limit name="block-size" value="16x16" />
             <Limit name="frame-rate" range="1-20" />
-            <Limit name="concurrent-instances" max="6" />
+            <Limit name="concurrent-instances" max="16" />
             <Limit name="quality" range="0-100" default="80" />
             <Feature name="bitrate-modes" value="CQ" />
             <Limit name="performance-point-512x512" value="3825" />
@@ -380,7 +390,7 @@
             <Quirk name="requires-allocate-on-input-ports" />
             <Quirk name="requires-allocate-on-output-ports" />
             <Quirk name="requires-loaded-to-idle-after-allocation" />
-            <Limit name="size" min="512x512" max="8192x8192" />
+            <Limit name="size" min="512x512" max="5120x2560" />
             <Limit name="alignment" value="2x2" />
             <Limit name="block-size" value="16x16" />
             <Limit name="frame-rate" range="1-20" />
@@ -402,6 +412,7 @@
             <Limit name="performance-point-3840x2160" value="30" />
             <Limit name="performance-point-1920x1080" value="120" />
             <Limit name="performance-point-1280x720" value="240" />
+            <Feature name="can-swap-width-height" value="1" />
         </MediaCodec>
 
         <!-- OMX alias encoders (Codec2 encoders with OMX names) -->
@@ -458,5 +469,4 @@
             <Limit name="performance-point-7680x4320" value="30" />
         </MediaCodec>
     </Encoders>
-    <Include href="media_codecs_google_c2.xml" />
 </Included>

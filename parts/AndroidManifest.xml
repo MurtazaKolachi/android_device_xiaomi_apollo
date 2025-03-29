@@ -42,10 +42,9 @@
         </receiver>
 
         <service
-            android:name=".refreshrate.RefreshService"
+            android:name=".popupcamera.PopupCameraService"
             android:exported="true"
-            android:permission="RefreshService">
-        </service>
+            android:permission="PopupCameraService" />
 
         <service
             android:name=".thermal.ThermalService"
@@ -53,25 +52,33 @@
             android:permission="ThermalService" />
 
         <activity
-            android:name=".refreshrate.RefreshActivity"
-            android:label="@string/refresh_title"
+            android:name=".popupcamera.PopupCameraSettingsActivity"
             android:exported="false"
-            android:theme="@style/Theme.SubSettingsBase">
+            android:label="@string/popup_title"
+            android:enabled="false">
             <intent-filter>
                 <action android:name="com.android.settings.action.IA_SETTINGS" />
             </intent-filter>
+
             <meta-data
                 android:name="com.android.settings.category"
-                android:value="com.android.settings.category.ia.display" />
+                android:value="com.android.settings.category.ia.system" />
+            <meta-data
+                android:name="com.android.settings.icon"
+                android:resource="@drawable/ic_settings_popup" />
             <meta-data
                 android:name="com.android.settings.summary"
-                android:resource="@string/refresh_summary" />
+                android:resource="@string/summary_empty" />
+            <meta-data
+                android:name="com.android.settings.order"
+                android:value="-255" />
         </activity>
 
         <activity
             android:name=".thermal.ThermalActivity"
             android:exported="false"
-            android:label="@string/thermal_title">
+            android:label="@string/thermal_title"
+            android:theme="@style/Theme.SubSettingsBase_v31">
             <intent-filter>
                 <action android:name="com.android.settings.action.IA_SETTINGS" />
             </intent-filter>
@@ -87,5 +94,3 @@
         </activity>
 
     </application>
-
-</manifest>

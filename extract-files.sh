@@ -7,14 +7,17 @@
 
 set -e
 
-DEVICE=apollo
-VENDOR=xiaomi
-
 # Load extract_utils and do some sanity checks
 MY_DIR="${BASH_SOURCE%/*}"
 if [[ ! -d "${MY_DIR}" ]]; then MY_DIR="${PWD}"; fi
 
 ANDROID_ROOT="${MY_DIR}/../../.."
+
+export TARGET_ENABLE_CHECKELF=true
+
+# If XML files don't have comments before the XML header, use this flag
+# Can still be used with broken XML files by using blob_fixup
+export TARGET_DISABLE_XML_FIXING=true
 
 HELPER="${ANDROID_ROOT}/tools/extract-utils/extract_utils.sh"
 if [ ! -f "${HELPER}" ]; then
@@ -26,11 +29,23 @@ source "${HELPER}"
 # Default to sanitizing the vendor folder before extraction
 CLEAN_VENDOR=true
 
+ONLY_APOLLO=
+ONLY_FIRMWARE=
+ONLY_TARGET=
 KANG=
 SECTION=
 
 while [ "${#}" -gt 0 ]; do
     case "${1}" in
+        --only-APOLLO)
+            ONLY_APOLLO=true
+            ;;
+        --only-firmware)
+            ONLY_FIRMWARE=true
+            ;;
+        --only-target)
+            ONLY_TARGET=true
+            ;;
         -n | --no-cleanup)
             CLEAN_VENDOR=false
             ;;
@@ -55,58 +70,83 @@ fi
 
 function blob_fixup() {
     case "${1}" in
-        vendor/etc/libnfc-nci.conf)
+        system_ext/lib64/libwfdmmsrc_system.so)
             [ "$2" = "" ] && return 0
-            cat << EOF >> "${2}"
-# Mifare Tag implementation
-# 0: General implementation
-# 1: Legacy implementation
-LEGACY_MIFARE_READER=1
-EOF
+            grep -q "libgui_shim.so" "${2}" || "${PATCHELF}" --add-needed "libgui_shim.so" "${2}"
             ;;
-        vendor/lib64/camera/components/com.mi.node.watermark.so)
+        system_ext/lib64/libwfdnative.so)
             [ "$2" = "" ] && return 0
-            grep -q "libpiex_shim.so" "${2}" || "${PATCHELF}" --add-needed "libpiex_shim.so" "${2}"
+            grep -q "libbinder_shim.so" "${2}" || "${PATCHELF}" --add-needed "libbinder_shim.so" "${2}"
+            grep -q "libinput_shim.so" "${2}" || "${PATCHELF}" --add-needed "libinput_shim.so" "${2}"
             ;;
-        vendor/lib64/libril-qc-hal-qmi.so)
+        system_ext/lib64/libwfdservice.so)
             [ "$2" = "" ] && return 0
-            sed -i 's|ro.product.vendor.device|ro.vendor.radio.midevice|g' "${2}"
-            ;;
-        vendor/lib64/vendor.qti.hardware.camera.postproc@1.0-service-impl.so)
-            [ "$2" = "" ] && return 0
-            "${SIGSCAN}" -p "9A 0A 00 94" -P "1F 20 03 D5" -f "${2}"
+            "${PATCHELF}" --replace-needed "android.media.audio.common.types-V2-cpp.so" "android.media.audio.common.types-V4-cpp.so" "${2}"
             ;;
         vendor/etc/init/init.mi_thermald.rc)
             [ "$2" = "" ] && return 0
             sed -i "/seclabel u:r:mi_thermald:s0/d" "${2}"
             ;;
-        vendor/etc/init/init.batterysecret.rc)
+        vendor/etc/seccomp_policy/atfwd@2.0.policy)
             [ "$2" = "" ] && return 0
-            sed -i "/seclabel u:r:batterysecret:s0/d" "${2}"
+            grep -q 'gettid: ' "${2}" || echo 'gettid: 1' >> "${2}"
             ;;
-        vendor/etc/init/init_thermal-engine.rc)
+        vendor/lib64/mediadrm/libwvdrmengine.so)
             [ "$2" = "" ] && return 0
-            sed -i '/^#service/,/^$/ s/^#//' "${2}"
+            grep -q "libcrypto_shim.so" "${2}" || "${PATCHELF}" --add-needed "libcrypto_shim.so" "${2}"
             ;;
-        vendor/lib64/libdlbdsservice.so | vendor/lib/libstagefright_soft_ac4dec.so | vendor/lib/libstagefright_soft_ddpdec.so)
+        vendor/lib64/libril-qc-hal-qmi.so)
+            [ "$2" = "" ] && return 0
+            sed -i 's|ro.product.vendor.device|ro.vendor.radio.midevice|g' "${2}"
+            ;;
+        vendor/lib64/libwvhidl.so)
+            [ "$2" = "" ] && return 0
+            grep -q "libcrypto_shim.so" "${2}" || "${PATCHELF}" --add-needed "libcrypto_shim.so" "${2}"
+            ;;
+        # Dolby START
+        odm/bin/hw/vendor.dolby_sp.media.c2@1.0-service)
+            [ "$2" = "" ] && return 0
+            "${PATCHELF}" --replace-needed "libcodec2_hidl@1.0.so" "libcodec2_hidl@1.0_sp.so" "${2}"
+            "${PATCHELF}" --replace-needed "libcodec2_vndk.so" "libcodec2_vndk_sp.so" "${2}"
+            ;;
+        odm/lib64/libcodec2_store_dolby_sp.so)
+            [ "$2" = "" ] && return 0
+            "${PATCHELF}" --replace-needed "libcodec2_vndk.so" "libcodec2_vndk_sp.so" "${2}"
+            ;;
+        odm/lib64/libcodec2_soft_ac4dec_sp.so|odm/lib64/libcodec2_soft_ddpdec_sp.so)
+            [ "$2" = "" ] && return 0
+            "${PATCHELF}" --replace-needed "libcodec2_vndk.so" "libcodec2_vndk_sp.so" "${2}"
+            "${PATCHELF}" --replace-needed "libcodec2_soft_common.so" "libcodec2_soft_common_sp.so" "${2}"
+            "${PATCHELF}" --replace-needed "libstagefright_foundation.so" "libstagefright_foundation-v33.so" "${2}"
+            ;;
+        odm/lib64/libcodec2_vndk_sp.so)
+            [ "$2" = "" ] && return 0
+            "${PATCHELF}" --replace-needed "libui.so" "libui_sp.so" "${2}"
+            "${PATCHELF}" --replace-needed "libstagefright_foundation.so" "libstagefright_foundation-v33.so" "${2}"
+            ;;
+        odm/lib64/libcodec2_hidl@1.0_sp.so)
+            [ "$2" = "" ] && return 0
+            "${PATCHELF}" --replace-needed "libcodec2_hidl_plugin.so" "libcodec2_hidl_plugin_sp.so" "${2}"
+            "${PATCHELF}" --replace-needed "libcodec2_vndk.so" "libcodec2_vndk_sp.so" "${2}"
+            ;;
+        odm/lib64/libcodec2_hidl_plugin_sp.so|odm/lib64/libcodec2_soft_common_sp.so)
+            [ "$2" = "" ] && return 0
+            "${PATCHELF}" --replace-needed "libcodec2_vndk.so" "libcodec2_vndk_sp.so" "${2}"
+            "${PATCHELF}" --replace-needed "libstagefright_foundation.so" "libstagefright_foundation-v33.so" "${2}"
+            ;;
+        odm/lib/libdlbdsservice_v3_6.so|odm/lib/libstagefright_soft_ddpdec.so|odm/lib64/libdlbdsservice_sp.so|odm/lib64/libdlbdsservice_v3_6.so)
             [ "$2" = "" ] && return 0
             "${PATCHELF}" --replace-needed "libstagefright_foundation.so" "libstagefright_foundation-v33.so" "${2}"
             ;;
-        vendor/lib64/libarcsoft_single_chart_calibration.so)
+        odm/lib64/libui_sp.so)
             [ "$2" = "" ] && return 0
-            "${PATCHELF}" --replace-needed "libstdc++.so" "libstdc++_vendor.so" "${2}"
+            "${PATCHELF}" --replace-needed "android.hardware.graphics.common-V3-ndk.so" "android.hardware.graphics.common-V5-ndk.so" "${2}"
+            "${PATCHELF}" --replace-needed "android.hardware.graphics.allocator-V1-ndk.so" "android.hardware.graphics.allocator-V2-ndk.so" "${2}"
             ;;
-        vendor/etc/seccomp_policy/atfwd@2.0.policy)
-            [ "$2" = "" ] && return 0
-            echo 'gettid: 1' >> "${2}"
-            ;;
-        vendor/lib64/libwvhidl.so | vendor/lib64/mediadrm/libwvdrmengine.so)
-            [ "$2" = "" ] && return 0
-            "${PATCHELF}" --add-needed "libcrypto_shim.so" "${2}"
-	    ;;
+        # Dolby END
         *)
             return 1
-	    ;;
+            ;;
     esac
 
     return 0
@@ -116,9 +156,26 @@ function blob_fixup_dry() {
     blob_fixup "$1" ""
 }
 
-# Initialize the helper
-setup_vendor "${DEVICE}" "${VENDOR}" "${ANDROID_ROOT}" false "${CLEAN_VENDOR}"
+if [ -z "${ONLY_FIRMWARE}" ] && [ -z "${ONLY_TARGET}" ]; then
+    # Initialize the helper for apollo device
+    setup_vendor "${DEVICE_APOLLO}" "${VENDOR_APOLLO:-$VENDOR}" "${ANDROID_ROOT}" true "${CLEAN_VENDOR}"
 
-extract "${MY_DIR}/proprietary-files.txt" "${SRC}" "${KANG}" --section "${SECTION}"
+    extract "${MY_DIR}/proprietary-files.txt" "${SRC}" "${KANG}" --section "${SECTION}"
+    extract "${MY_DIR}/proprietary-files-phone.txt" "${SRC}" "${KANG}" --section "${SECTION}"
+fi
+
+if [ -z "${ONLY_APOLLO}" ] && [ -s "${MY_DIR}/../../${VENDOR}/${DEVICE}/proprietary-files.txt" ]; then
+    # Reinitialize the helper for device
+    source "${MY_DIR}/../../${VENDOR}/${DEVICE}/extract-files.sh"
+    setup_vendor "${DEVICE}" "${VENDOR}" "${ANDROID_ROOT}" false "${CLEAN_VENDOR}"
+
+    if [ -z "${ONLY_FIRMWARE}" ]; then
+        extract "${MY_DIR}/../../${VENDOR}/${DEVICE}/proprietary-files.txt" "${SRC}" "${KANG}" --section "${SECTION}"
+    fi
+
+    if [ -z "${SECTION}" ] && [ -f "${MY_DIR}/../../${VENDOR}/${DEVICE}/proprietary-firmware.txt" ]; then
+        extract_firmware "${MY_DIR}/../../${VENDOR}/${DEVICE}/proprietary-firmware.txt" "${SRC}"
+    fi
+fi
 
 "${MY_DIR}/setup-makefiles.sh"
