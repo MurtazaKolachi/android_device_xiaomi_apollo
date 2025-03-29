@@ -21,6 +21,7 @@ vendor.camera.sensor.                                                           
 # Fingerprint
 gf.debug.                                                                                           u:object_r:vendor_fingerprint_prop:s0
 persist.sys.fp.                                                                                     u:object_r:vendor_fingerprint_prop:s0
+persist.vendor.fingerprint.                                                                         u:object_r:vendor_fingerprint_prop:s0
 persist.vendor.fpc.                                                                                 u:object_r:vendor_fingerprint_prop:s0
 persist.vendor.sys.fp.                                                                              u:object_r:vendor_fingerprint_prop:s0
 ro.boot.fpsensor                                                                                    u:object_r:vendor_fingerprint_prop:s0
@@ -40,13 +41,14 @@ ro.ril.miui.imei                                                                
 ro.ril.oem.imei                                                                                     u:object_r:vendor_deviceid_prop:s0
 ro.ril.oem.meid                                                                                     u:object_r:vendor_deviceid_prop:s0
 ro.vendor.oem.imei                                                                                  u:object_r:vendor_deviceid_prop:s0
-ro.vendor.oem.imei1                             u:object_r:vendor_deviceid_prop:s0
-ro.vendor.oem.imei2                             u:object_r:vendor_deviceid_prop:s0
-ro.vendor.oem.sno                                                                                   u:object_r:vendor_deviceid_prop:s0
 ro.vendor.oem.psno                                                                                  u:object_r:vendor_deviceid_prop:s0
+ro.vendor.oem.sno                                                                                   u:object_r:vendor_deviceid_prop:s0
 
 # Mlipay
 persist.vendor.sys.pay                                                                              u:object_r:vendor_tee_listener_prop:s0
+
+# Motor
+persist.vendor.motor.                                                                               u:object_r:vendor_motor_prop:s0
 
 # RIL
 ro.vendor.ril                                                                                       u:object_r:vendor_public_vendor_default_prop:s0

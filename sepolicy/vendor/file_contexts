@@ -12,15 +12,22 @@
 /mnt/vendor/persist/camera(/.*)?                                                                    u:object_r:vendor_persist_camera_file:s0
 /vendor/bin/remosaic_daemon                                                                         u:object_r:vendor_remosaic_daemon_exec:s0
 
+# Camera motor
+/dev/drv8846_dev                                                                                    u:object_r:motor_device:s0
+/dev/ti-drv8846                                                                                     u:object_r:motor_device:s0
+/vendor/bin/hw/vendor\.xiaomi\.hardware\.motor@1.0-service                                          u:object_r:hal_motor_default_exec:s0
+
 # Charger
 /vendor/bin/batterysecret                                                                           u:object_r:vendor_batterysecret_exec:s0
 
 # Dolby
 /data/vendor/dolby(/.*)?                                                                            u:object_r:vendor_data_file:s0
-/(vendor|system/vendor)/bin/hw/vendor\.dolby\.hardware\.dms@2\.0-service                            u:object_r:hal_dms_default_exec:s0
+/(odm|vendor/odm)/bin/hw/vendor\.dolby_v3_6\.hardware\.dms360@2\.0-service                          u:object_r:hal_dms_default_exec:s0
+/(odm|vendor/odm)/bin/hw/vendor\.dolby_sp\.hardware\.dmssp@2\.0-service                             u:object_r:hal_dms_default_exec:s0
+/(vendor|odm)/bin/hw/vendor\.dolby_sp\.media\.c2@1\.0-service                                       u:object_r:mediacodec_exec:s0
 
 # Fingerprint
-/vendor/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.3-service\.xiaomi                      u:object_r:hal_fingerprint_default_exec:s0
+/vendor/bin/hw/android\.hardware\.biometrics\.fingerprint-service\.xiaomi                           u:object_r:hal_fingerprint_default_exec:s0
 
 # Fingerprint - devices
 /dev/goodix_fp                                                                                      u:object_r:fingerprint_device:s0
@@ -50,20 +57,11 @@
 /sys/devices/platform/soc/[a-z0-9]+.qcom,spmi/spmi-[0-9]+/spmi[0-9]+-[0-9]+/[a-z0-9]+.qcom,spmi:qcom,[a-z0-9]+@[0-9]+:qcom,leds@[a-z0-9]+/leds(/.*)?    u:object_r:sysfs_leds:s0
 /sys/devices/platform/soc/[a-z0-9]+.i2c/i2c-[0-9]+/[0-9]+-[0-9]+/leds(/.*)?                         u:object_r:sysfs_leds:s0
 
-# Lights
-/vendor/bin/hw/android\.hardware\.light-service\.xiaomi                                             u:object_r:hal_light_default_exec:s0
-
 # Mlipay
 /vendor/bin/mlipayd@1\.1                                                                            u:object_r:hal_mlipay_default_exec:s0
 
-# NFC
-/vendor/bin/hw/android.hardware\.nfc-service\.nxp                                                   u:object_r:hal_nfc_default_exec:s0
-
 # Persist subsystem
 /mnt/vendor/persist/subsys(/.*)?                                                                    u:object_r:vendor_persist_subsys_file:s0
-
-# Power
-/vendor/bin/hw/android\.hardware\.power-service\.lineage-libperfmgr      u:object_r:hal_power_default_exec:s0
 
 # Sensors
 /dev/akm09970                                                                                       u:object_r:hall_device:s0
@@ -78,11 +76,8 @@
 /vendor/bin/mi_thermald                                                                             u:object_r:vendor_mi_thermald_exec:s0
 /data/vendor/thermal(/.*)?                                                                          u:object_r:vendor_thermal_data_file:s0
 
-# Touch
-/vendor/bin/hw/vendor\.lineage\.touch@1\.0-service\.xiaomi              u:object_r:hal_lineage_touch_default_exec:s0
-
 # Ultrasound devices
-/dev/elliptic(.*)?                                                                                  u:object_r:ultrasound_device:s0
+/dev/elliptic[0-9]+                                                                                 u:object_r:ultrasound_device:s0
 /dev/mius(.*)?                                                                                      u:object_r:ultrasound_device:s0
 
 # Wakeup source stats
