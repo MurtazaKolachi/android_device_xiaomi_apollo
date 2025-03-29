@@ -11,6 +11,16 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 # Inherit some common AOSP stuff.
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
+# Google Apps
+WITH_GMS := true
+TARGET_DEFAULT_PIXEL_LAUNCHER := true
+
+TARGET_PREBUILT_LAWNCHAIR_LAUNCHER := false
+TARGET_ENABLE_BLUR := false
+PRODUCT_BUILD_PROP_OVERRIDES += \
+    RisingChipset="SM8250-KONA" \
+    RisingMaintainer="Murtaza Kolachi"
+
 # Inherit from apollo device
 $(call inherit-product, device/xiaomi/apollo/device.mk)
 
