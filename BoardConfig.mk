@@ -100,7 +100,7 @@ BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
 TARGET_KERNEL_SOURCE := kernel/xiaomi/apollo
 TARGET_KERNEL_CONFIG := \
     apollo_defconfig \
-    vendor/debugfs.config
+    vendor/debugfs.config \
     vendor/xiaomi/apollo-common.config
 
 # Lineage Health
