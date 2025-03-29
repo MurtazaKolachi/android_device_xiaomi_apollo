@@ -68,7 +68,6 @@ TARGET_ADDITIONAL_GRALLOC_10_USAGE_BITS := 0x546C00000000
 TARGET_NO_RAW10_CUSTOM_FORMAT := true
 TARGET_SCREEN_DENSITY := 440
 TARGET_USES_FOD_ZPOS := true
-#endif
 
 # Filesystem
 TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/config.fs
@@ -232,7 +231,6 @@ DEVICE_MATRIX_FILE += $(DEVICE_PATH)/vintf/compatibility_matrix.xml
 DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/vintf/manifest_phone.xml
 ODM_MANIFEST_SKUS += nfc
 ODM_MANIFEST_NFC_FILES := $(DEVICE_PATH)/vintf/manifest_nfc.xml
-endif
 DEVICE_MATRIX_FILE += hardware/qcom-caf/apollo/compatibility_matrix.xml
 
 # Wi-Fi
