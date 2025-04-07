@@ -11,8 +11,6 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 # Inherit some common AOSP stuff.
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
-TARGET_BOOT_ANIMATION_RES := 1080
-
 # Inherit from apollo device
 $(call inherit-product, device/xiaomi/apollo/device.mk)
 
@@ -27,3 +25,18 @@ PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 PRODUCT_BUILD_PROP_OVERRIDES += \
     BuildDesc="apollo_global-user 12 RKQ1.211001.001 V14.0.4.0.SJDMIXM release-keys" \
     BuildFingerprint=Xiaomi/apollo_global/apollo:12/RKQ1.211001.001/V14.0.4.0.SJDMIXM:user/release-keys
+
+TARGET_BOOT_ANIMATION_RES := 1440
+TENX_BUILD_TYPE := Unofficial
+WITH_GMS := true
+
+# Pixel stuff
+TARGET_FACE_UNLOCK_SUPPORTED := true
+TARGET_INCLUDE_LIVE_WALLPAPERS := true
+TARGET_INCLUDE_STOCK_ARCORE := true
+TARGET_SUPPORTS_GOOGLE_RECORDER := true
+TARGET_SUPPORTS_NEXT_GEN_ASSISTANT := true
+TARGET_SUPPORTS_QUICK_TAP := true
+TARGET_INCLUDE_NEXUS := true
+TARGET_SUPPORTS_WALLEFFECT := true
+TARGET_DISABLE_EPPE := true
