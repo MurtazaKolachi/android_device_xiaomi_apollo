@@ -362,12 +362,6 @@
     <!-- The default peak refresh rate. -->
     <integer name="config_defaultPeakRefreshRate">144</integer>
 
-    <!-- Is the notification LED intrusive? Used to decide if there should be a disable option -->
-    <bool name="config_intrusiveNotificationLed">true</bool>
-
-    <!-- Is the battery LED intrusive? Used to decide if there should be a disable option -->
-    <bool name="config_intrusiveBatteryLed">true</bool>
-
     <!-- Indicates whether device has a power button fingerprint sensor. -->
     <bool name="config_is_powerbutton_fps" translatable="false">true</bool>
 
@@ -384,6 +378,9 @@
         <item>880</item>
         <item>200</item>
     </array>
+
+    <!--  Does the device have a notification led  -->
+    <bool name="config_hasNotificationLed">true</bool>
 
     <!-- If this is true, the screen will come on when you unplug usb/power/whatever. -->
     <bool name="config_unplugTurnsOnScreen">true</bool>
