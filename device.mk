@@ -122,6 +122,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.ir-service.lineage
 
+# DeviceAsWebcam
+TARGET_BUILD_DEVICE_AS_WEBCAM := true
+
 # Device-specific settings
 PRODUCT_PACKAGES += \
     XiaomiDolby \
