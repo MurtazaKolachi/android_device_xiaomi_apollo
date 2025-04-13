@@ -51,8 +51,7 @@ function lib_to_package_fixup_vendor_variants() {
             ;;
         libOmxCore | \
             libgrallocutils | \
-            libwfdaac_vendor | \
-            libwpa_client) ;;
+            libwfdaac_vendor) ;;
         *)
             return 1
             ;;
