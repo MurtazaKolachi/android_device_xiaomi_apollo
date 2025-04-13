@@ -1,18 +1,18 @@
 [
   {
-    "repository": "MurtazaKolachi/android_device_xiaomi_apollo",
+    "repository": "MurtazaKolachi/android_device_xiaomi_apollo_",
     "target_path": "device/xiaomi/apollo",
     "remote": "github",
-    "branch": "vic"
+    "branch": "crdroid"
   },
   {
-    "repository": "MurtazaKolachi/android_vendor_xiaomi_apollo",
+    "repository": "MurtazaKolachi/android_vendor_xiaomi_apollo_",
     "target_path": "vendor/xiaomi/apollo",
     "remote": "github",
     "branch": "main"
   },
   {
-    "repository": "MurtazaKolachi/kernel_xiaomi_apollo",
+    "repository": "MurtazaKolachi/kernel_xiaomi_apollo_",
     "target_path": "kernel/xiaomi/apollo",
     "remote": "github",
     "branch": "main"
