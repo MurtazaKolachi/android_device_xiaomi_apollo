@@ -244,19 +244,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/com.nxp.mifare.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/com.nxp.mifare.xml
 
 # OMX
-PRODUCT_PACKAGES += \
-    libOmxAacEnc \
-    libOmxAmrEnc \
-    libOmxCore \
-    libOmxEvrcEnc \
-    libOmxG711Enc \
-    libOmxQcelp13Enc \
-    libOmxVdec \
-    libOmxVenc \
-    libstagefrighthw \
-    libavservices_minijail_vendor \
-    libcodec2_soft_common.vendor \
-    libsfplugin_ccodec_utils.vendor
+TARGET_SUPPORTS_OMX_SERVICE := false
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
