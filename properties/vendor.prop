@@ -243,6 +243,9 @@ persist.vendor.cp.qc3p5_vfloat_offset_uv=110000
 # Keystore
 ro.hardware.keystore_desede=true
 
+# Media
+vendor.media.omx=0
+
 # NFC
 ro.camera.notify_nfc=1
 

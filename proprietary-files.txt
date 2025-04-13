@@ -1098,7 +1098,6 @@ vendor/radio/qcril_database/qcril.db
 # SECCOMP policy
 vendor/etc/seccomp_policy/codec2.vendor.base-arm.policy
 vendor/etc/seccomp_policy/codec2.vendor.ext-arm.policy
-vendor/etc/seccomp_policy/mediacodec.policy
 
 # Sensors
 vendor/bin/hw/vendor.qti.hardware.sensorscalibrate@1.0-service
