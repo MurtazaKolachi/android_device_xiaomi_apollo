@@ -5,5 +5,5 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- About device screen, build maintainer -->
-    <string name="build_maintainer_summary">Murtaza Kolachi</string>
+    <string name="device_maintainer">Murtaza Kolachi</string>
 </resources>
