@@ -131,8 +131,8 @@ PRODUCT_PACKAGES += \
     vendor.qti.hardware.memtrack-service
 
 # Dolby
-# PRODUCT_PACKAGES += \
-   # XiaomiDolby
+PRODUCT_PACKAGES += \
+    XiaomiDolby
 
 PRODUCT_PACKAGES += \
     libstagefright_foundation-v33
@@ -287,7 +287,7 @@ PRODUCT_PACKAGES += \
 # Rootdir
 PRODUCT_PACKAGES += \
     fstab.qcom \
-   # fstab.qcom_ramdisk
+    fstab.qcom_ramdisk
 
 PRODUCT_PACKAGES += \
     init.class_main.sh \
