@@ -287,7 +287,7 @@ PRODUCT_PACKAGES += \
 # Rootdir
 PRODUCT_PACKAGES += \
     fstab.qcom \
-    fstab.qcom_ramdisk
+   # fstab.qcom_ramdisk
 
 PRODUCT_PACKAGES += \
     init.class_main.sh \
