@@ -1,4 +1,4 @@
-<compatibility-matrix version="2.0" type="framework">
+<compatibility-matrix version="10.0" type="framework">
     <hal format="hidl" optional="true">
         <name>android.hardware.biometrics.fingerprint</name>
         <version>2.3</version>
