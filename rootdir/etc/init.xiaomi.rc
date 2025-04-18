@@ -120,6 +120,11 @@ service vendor.btmac-sh /vendor/bin/init.mi.btmac.sh
 on early-init
     setprop ro.vendor.radio.midevice ${ro.product.vendor.device}
 
+# Torch
+    chown cameraserver cameraserver /sys/class/leds/led:switch_0/brightness
+    chown cameraserver cameraserver /sys/class/leds/led:torch_0/brightness
+    chown cameraserver cameraserver /sys/class/leds/led:torch_1/brightness
+
 # Touch
 on boot
     chown system system /sys/devices/virtual/touch/touch_dev/bump_sample_rate
