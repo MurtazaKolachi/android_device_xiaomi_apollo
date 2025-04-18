@@ -252,6 +252,35 @@ ro.vendor.extension_library=libqti-perfd-client.so
 # Qualcomm System Daemon
 persist.vendor.qcomsysd.enabled=1
 
+# Radio
+persist.radio.multisim.config=dsds
+persist.vendor.data.mode=concurrent
+persist.vendor.radio.apm_sim_not_pwdn=1
+persist.vendor.radio.atfwd.start=true
+persist.vendor.radio.cdma_cap=true
+persist.vendor.radio.custom_ecc=1
+persist.vendor.radio.data_con_rprt=1
+persist.vendor.radio.data_ltd_sys_ind=1
+persist.vendor.radio.add_power_save=1
+persist.vendor.radio.dynamic_sar=1
+persist.vendor.radio.enable_temp_dds=true
+persist.vendor.radio.enableadvancedscan=true
+persist.vendor.radio.force_ltd_sys_ind=1
+persist.vendor.radio.force_on_dc=true
+persist.vendor.radio.manual_nw_rej_ct=1
+persist.vendor.radio.mbn_cdma=/vendor/firmware_mnt/image/modem_pr/mcfg/configs/mcfg_sw/oem_sw_j11.txt
+persist.vendor.radio.procedure_bytes=SKIP
+persist.vendor.radio.rat_on=combine
+persist.vendor.radio.sib16_support=1
+ro.com.android.dataroaming=true
+
+# Refresh Rate
+ro.surface_flinger.set_display_power_timer_ms=1000
+ro.surface_flinger.set_idle_timer_ms=1000
+ro.surface_flinger.set_touch_timer_ms=100
+ro.surface_flinger.use_content_detection_for_refresh_rate=true
+vendor.display.idle_time=1100
+
 # Seamless transfer
 sys.fflag.override.settings_seamless_transfer=true
 
@@ -285,9 +314,3 @@ wifi.aware.interface=wifi-aware0
 # Zygote
 zygote.critical_window.minute=10
 
-# Refresh Rate
-ro.surface_flinger.use_content_detection_for_refresh_rate=true
-ro.surface_flinger.set_display_power_timer_ms=1000
-ro.surface_flinger.set_idle_timer_ms=80
-ro.surface_flinger.set_touch_timer_ms=200
-vendor.display.idle_time=1100
