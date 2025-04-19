@@ -108,7 +108,7 @@ BOARD_QTI_DYNAMIC_PARTITIONS_SIZE := 9122611200 # (BOARD_SUPER_PARTITION_SIZE - 
 
 # Partitions - reserved size
 -include vendor/lineage/config/BoardConfigReservedSize.mk
-ifeq ($(WITH_GMS),true)
+ifneq ($(WITH_GMS),true)
  $(foreach p, $(call to-upper, $(PARTITIONS)), \
      $(eval BOARD_$(p)IMAGE_PARTITION_RESERVED_SIZE := 104857600))
 else
