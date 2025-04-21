@@ -30,7 +30,7 @@ ro.vendor.qti.core_ctl_max_cpu=4
 ro.vendor.qti.core_ctl_min_cpu=2
 
 # Radio
-ro.telephony.default_network=22,22
+ro.telephony.default_network=33,33
 persist.vendor.radio.report_codec=1
 
 # WFD
