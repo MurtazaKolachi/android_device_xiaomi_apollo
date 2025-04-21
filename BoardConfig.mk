@@ -59,7 +59,6 @@ TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/config.fs
 
 # Init
 TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):init_xiaomi_apollo
-TARGET_RECOVERY_DEVICE_MODULES := init_xiaomi_apollo
 
 # Kernel
 BOARD_BOOT_HEADER_VERSION := 2
