@@ -44,3 +44,10 @@ vendor.wfdservice64=enable
 
 # Zygote
 persist.device_config.runtime_native.usap_pool_enabled=true
+
+# Infinity Defintions
+ro.infinity.soc=Snapdragon 865 (7nm)
+ro.infinity.battery=5000 mAh
+ro.infinity.display=1080 x 2400, 144 Hz
+ro.infinity.camera=64MP + 13MP + 5MP
+ro.product.marketname=Mi 10T 5G
