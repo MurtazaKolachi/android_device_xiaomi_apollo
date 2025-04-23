@@ -8,13 +8,24 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
-# Inherit some common Lineage stuff.
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+# Inherit some common Infinity stuff.
+$(call inherit-product, vendor/infinity/config/common_full_phone.mk)
+
+TARGET_BOOT_ANIMATION_RES := 1080
+WITH_GAPPS := false
+TARGET_SHIPS_FULL_GAPPS := false
+TARGET_BUILD_GOOGLE_TELEPHONY := false
+TARGET_SUPPORTS_BLUR := true
+USE_MOTO_CALCULATOR := true
+TARGET_FACE_UNLOCK_SUPPORTED := true
+TARGET_BUILD_VIMUSIC := true
+INFINITY_MAINTAINER := Murtaza Kolachi
+INFINITY_BUILD_TYPE := UNOFFICIAL
 
 # Inherit from apollo device
 $(call inherit-product, device/xiaomi/apollo/device.mk)
 
-PRODUCT_NAME := lineage_apollo
+PRODUCT_NAME := infinity_apollo
 PRODUCT_DEVICE := apollo
 PRODUCT_MANUFACTURER := Xiaomi
 PRODUCT_BRAND := Xiaomi
