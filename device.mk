@@ -132,6 +132,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libpiex_shim
 
+$(call soong_config_set,camera,override_format_from_reserved,true)
+
 # Configstore
 PRODUCT_PACKAGES += \
     disable_configstore
