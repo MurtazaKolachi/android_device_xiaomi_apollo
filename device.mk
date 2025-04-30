@@ -112,6 +112,8 @@ PRODUCT_PACKAGES += \
     libmegface \
     libpiex_shim
 
+$(call soong_config_set,camera,override_format_from_reserved,true)
+
 # Configstore
 PRODUCT_PACKAGES += \
     disable_configstore
