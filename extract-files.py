@@ -61,6 +61,12 @@ blob_fixups: blob_fixups_user_type = {
         .regex_replace('.*seclabel u:r:mi_thermald:s0\n', ''),
     'vendor/etc/seccomp_policy/atfwd@2.0.policy': blob_fixup()
         .add_line_if_missing('gettid: 1'),
+    'vendor/etc/seccomp_policy/codec2.vendor.base-arm.policy': blob_fixup()
+        .regex_replace('futex: 1', '')
+        .add_line_if_missing('futex: 1'),
+    'vendor/etc/seccomp_policy/codec2.vendor.ext-arm.policy': blob_fixup()
+        .regex_replace('_llseek: 1', '')
+        .regex_replace('getdents64: 1', ''),
     'vendor/lib64/libril-qc-hal-qmi.so': blob_fixup()
         .binary_regex_replace(b'ro.product.vendor.device', b'ro.vendor.radio.midevice'),
     'vendor/lib64/libwvhidl.so': blob_fixup()
