@@ -486,3 +486,6 @@ firmware_directories /vendor/firmware_mnt/image/
 
 # socinfo
 /sys/devices/soc0           serial_number            0000    root    root
+
+# Camera torch
+/sys/class/leds/led:torch/brightness 0660 cameraserver camera
