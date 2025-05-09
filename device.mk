@@ -165,6 +165,10 @@ PRODUCT_PACKAGES += \
 
 $(call soong_config_set,qtidisplay,gralloc_handle_has_reserved_size,true)
 
+# Dolby VNDK libs
+PRODUCT_PACKAGES += \
+    libstagefright_foundation-v33
+
 # DRM
 PRODUCT_PACKAGES += \
     android.hardware.drm-service.clearkey
