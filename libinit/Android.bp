@@ -4,6 +4,7 @@
 // SPDX-License-Identifier: Apache-2.0
 //
 
+
 cc_library_static {
     name: "init_xiaomi_kona",
     srcs: [
@@ -20,5 +21,12 @@ cc_library_static {
         default: ["libvariant_default"],
     }),
     include_dirs: ["system/core/init"],
+    recovery_available: true,
+}
+
+cc_library_static {
+    name: "libvariant_xiaomi_apollo",
+    srcs: ["libvariant_xiaomi_apollo.cpp"],
+    header_libs: ["//device/xiaomi/apollo:libvariant_headers"],
     recovery_available: true,
 }
