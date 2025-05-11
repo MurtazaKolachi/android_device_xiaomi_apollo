@@ -366,7 +366,7 @@ service mi-serial-sh /vendor/bin/init.mi.serial.sh
     disabled
     oneshot
 
-on post-fs && property:ro.product.device=elish
+on post-fs && property:ro.product.device=apollo
     start mi-serial-sh
 
 on property:sys.lmkd.memory.start_reclaim_in_video_record=1
