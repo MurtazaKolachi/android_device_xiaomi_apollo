@@ -197,9 +197,6 @@ on boot
     chown root system /sys/module/migt/parameters/reset_clus_affinity_uidlist
     chmod 0664 /sys/module/migt/parameters/reset_clus_affinity_uidlist
 
-on property:persist.vendor.sys.fp.fod.large_field=1
-    write sys/bus/i2c/devices/3-0049/fod_area 1
-
 on boot && property:persist.vendor.usb.controller.default=*
     setprop vendor.usb.controller ${persist.vendor.usb.controller.default}
 
@@ -366,7 +363,7 @@ service mi-serial-sh /vendor/bin/init.mi.serial.sh
     disabled
     oneshot
 
-on post-fs && property:ro.product.device=elish
+on post-fs && property:ro.product.device=apollo
     start mi-serial-sh
 
 on property:sys.lmkd.memory.start_reclaim_in_video_record=1
