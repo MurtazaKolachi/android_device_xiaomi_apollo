@@ -18,6 +18,38 @@ from extract_utils.fixups_lib import (
 )
 
 blob_fixups: blob_fixups_user_type = {
+    'vendor/etc/camera/camxoverridesettings.txt': blob_fixup()
+        .regex_replace('0x10098', '0')
+        .regex_replace('0x1F', '0x0'),
+    'vendor/etc/init/init.batterysecret.rc': blob_fixup()
+        .regex_replace('.*seclabel u:r:batterysecret:s0\n', ''),
+    'vendor/etc/libnfc-nci.conf': blob_fixup()
+        .add_line_if_missing('LEGACY_MIFARE_READER=1'),
+    'vendor/lib64/camera/components/com.mi.node.watermark.so': blob_fixup()
+        .add_needed('libpiex_shim.so'),
+    (
+        'vendor/lib64/libMIAIHDRhvx_interface.so',
+        'vendor/lib64/libarcsoft_hdrplus_hvx_stub.so',
+        'vendor/lib64/libarcsoft_super_night_raw.so',
+        'vendor/lib64/libmialgo_rfs.so',
+    ): blob_fixup()
+        .clear_symbol_version('remote_handle_close')
+        .clear_symbol_version('remote_handle_invoke')
+        .clear_symbol_version('remote_handle_open')
+        .clear_symbol_version('remote_register_buf')
+        .clear_symbol_version('remote_register_buf_attr'),
+    (
+        'vendor/lib64/libalAILDC.so',
+        'vendor/lib64/libalLDC.so',
+        'vendor/lib64/libalhLDC.so',
+    ): blob_fixup()
+        .clear_symbol_version('AHardwareBuffer_allocate')
+        .clear_symbol_version('AHardwareBuffer_describe')
+        .clear_symbol_version('AHardwareBuffer_lock')
+        .clear_symbol_version('AHardwareBuffer_release')
+        .clear_symbol_version('AHardwareBuffer_unlock'),
+    'vendor/lib64/vendor.qti.hardware.camera.postproc@1.0-service-impl.so': blob_fixup()
+        .binary_regex_replace(b'\x9A\x0A\x00\x94', b'\x1F\x20\x03\xD5'),
     'system_ext/lib64/libwfdmmsrc_system.so': blob_fixup()
         .add_needed('libgui_shim.so'),
     'system_ext/lib64/libwfdnative.so': blob_fixup()
@@ -53,6 +85,7 @@ lib_fixups: lib_fixups_user_type = {
 }
 
 namespace_imports = [
+    'device/xiaomi/apollo',
     'hardware/qcom-caf/sm8250',
     'hardware/qcom-caf/wlan',
     'hardware/xiaomi',
@@ -60,19 +93,14 @@ namespace_imports = [
     'vendor/qcom/opensource/commonsys/display',
     'vendor/qcom/opensource/dataservices',
     'vendor/qcom/opensource/display',
-    'vendor/xiaomi/sm8250-common',
 ]
 
 module = ExtractUtilsModule(
-    'sm8250-common',
+    'apollo',
     'xiaomi',
     blob_fixups=blob_fixups,
     lib_fixups=lib_fixups,
     namespace_imports=namespace_imports,
-)
-
-module.add_proprietary_file('proprietary-files-phone.txt').add_copy_files_guard(
-    'TARGET_IS_TABLET', 'true', invert=True
 )
 
 if __name__ == '__main__':
