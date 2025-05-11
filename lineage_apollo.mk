@@ -14,6 +14,22 @@ $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 # Inherit from apollo device
 $(call inherit-product, device/xiaomi/apollo/device.mk)
 
+RISING_MAINTAINER="Murtaza Kolachi"
+
+# Gms 
+WITH_GMS := true
+TARGET_CORE_GMS := true
+TARGET_CORE_GMS_EXTRAS := true
+
+# Ship Pixel Launcher
+TARGET_DEFAULT_PIXEL_LAUNCHER := true
+
+# disable/enable blur support, default is false
+TARGET_ENABLE_BLUR := true
+
+# Rising Maintainer
+RISING_MAINTAINER := Murtaza Kolachi
+
 PRODUCT_NAME := lineage_apollo
 PRODUCT_DEVICE := apollo
 PRODUCT_MANUFACTURER := Xiaomi
@@ -24,4 +40,6 @@ PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
     BuildDesc="apollo_global-user 12 RKQ1.211001.001 V14.0.4.0.SJDMIXM release-keys" \
-    BuildFingerprint=Xiaomi/apollo_global/apollo:12/RKQ1.211001.001/V14.0.4.0.SJDMIXM:user/release-keys
+    BuildFingerprint=Xiaomi/apollo_global/apollo:12/RKQ1.211001.001/V14.0.4.0.SJDMIXM:user/release-keys \
+    RisingChipset="Snapdragon 865 (7nm)" \
+    RisingMaintainer="Murtaza Kolachi"
