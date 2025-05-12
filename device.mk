@@ -187,6 +187,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     IFAAService
 
+# Init
+$(call soong_config_set,libinit,vendor_init_lib,//$(LOCAL_PATH):init_xiaomi_apollo)
+
 # Input
 PRODUCT_PACKAGES += \
     Xiaomi_Smart_Pen_Keyboard.kl \
