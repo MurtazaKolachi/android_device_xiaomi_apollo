@@ -154,6 +154,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     vendor.qti.hardware.memtrack-service
 
+$(call soong_config_set,qtidisplay,gralloc_handle_has_reserved_size,true)
+
 # Dolby VNDK libs
 PRODUCT_PACKAGES += \
     libstagefright_foundation-v33
