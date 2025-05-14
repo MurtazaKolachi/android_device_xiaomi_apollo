@@ -282,7 +282,7 @@ PRODUCT_PACKAGES += \
     video_system_specs.json
 
 # Miui Camera
-include vendor/xiaomi/camera/miuicamera.mk
+include device/xiaomi/camera/miuicamera.mk
 
 # NFC
 PRODUCT_PACKAGES += \
