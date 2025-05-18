@@ -23,6 +23,8 @@
 -->
 
 <MediaCodecs>
+    <!-- Include Dolby Audio MediaCodecs -->
+    <Include href="media_codecs_dolby_audio.xml" />
     <Decoders>
         <!-- C2 HW decoders -->
         <MediaCodec name="c2.qti.avc.decoder" type="video/avc" update="true">
