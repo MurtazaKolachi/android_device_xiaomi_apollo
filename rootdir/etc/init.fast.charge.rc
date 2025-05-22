@@ -1,0 +1,7 @@
+on late-init
+    start fastcharge_service
+
+service fastcharge_service /vendor/bin/init.fast.charge.sh
+    class late_start
+    user root
+    oneshot

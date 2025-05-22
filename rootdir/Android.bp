@@ -41,6 +41,12 @@ sh_binary {
     vendor: true,
 }
 
+sh_binary {
+    name: "init.fast.charge.sh",
+    src: "bin/init.fast.charge.sh",
+    vendor: true,
+}
+
 // fstab
 prebuilt_etc {
     name: "fstab.qcom",
@@ -90,5 +96,11 @@ prebuilt_etc {
     name: "ueventd.qcom.rc",
     filename: "ueventd.rc",
     src: "etc/ueventd.qcom.rc",
+    vendor: true,
+}
+
+prebuilt_etc {
+    name: "init.fast.charge.rc",
+    src: "etc/init.fast.charge.rc",
     vendor: true,
 }
