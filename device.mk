@@ -135,6 +135,7 @@ PRODUCT_PACKAGES += \
     libpiex_shim
 
 $(call soong_config_set,camera,override_format_from_reserved,true)
+$(call inherit-product-if-exists, device/xiaomi/camera/miuicamera.mk)
 
 # Configstore
 PRODUCT_PACKAGES += \
