@@ -408,6 +408,9 @@ PRODUCT_PACKAGES += \
 # Vibrator
 $(call inherit-product, vendor/qcom/opensource/vibrator/vibrator-vendor-product.mk)
 
+# ViperFX 
+$(call inherit-product, packages/apps/ViPER4AndroidFX/config.mk)
+
 # VNDK
 PRODUCT_PACKAGES += \
     libutils.vendor
