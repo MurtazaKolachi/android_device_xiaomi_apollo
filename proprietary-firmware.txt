@@ -1,0 +1,22 @@
+## All proprietary files from this list, unless pinned and noted otherwise,
+## are from apollo MIUI V14.0.4.0.SJDMIXM
+
+abl.elf;
+aop.mbn;
+BTFM.bin;
+cmnlib.mbn;
+cmnlib64.mbn;
+devcfg.mbn;
+dspso.bin;
+featenabler.mbn;
+hyp.mbn;
+km4.mbn;
+NON-HLOS.bin;
+qupv3fw.elf;
+storsec.mbn;
+tz.mbn;
+uefi_sec.mbn;
+xbl_4.elf;
+xbl_5.elf;
+xbl_config_4.elf;
+xbl_config_5.elf;
