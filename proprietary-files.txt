@@ -873,7 +873,6 @@ vendor/lib/libqcodec2_v4l2codec.so
 
 # Media configs
 vendor/etc/media_profiles_kona.xml:vendor/etc/media_profiles_V1_0.xml
-vendor/etc/system_properties.xml
 
 # Mink-Lowi Interface daemon
 vendor/bin/mlid
@@ -906,21 +905,6 @@ vendor/lib/libsn100u_fw.so:vendor/lib64/libsn100u_fw.so
 
 # NVRAM
 vendor/bin/nv_mac
-
-# OMX
-vendor/lib/libOmxAacDec.so
-vendor/lib/libOmxAlacDec.so
-vendor/lib/libOmxAmrDec.so
-vendor/lib/libOmxAmrwbplusDec.so
-vendor/lib/libOmxApeDec.so
-vendor/lib/libOmxDsdDec.so
-vendor/lib/libOmxEvrcDec.so
-vendor/lib/libOmxG711Dec.so
-vendor/lib/libOmxQcelp13Dec.so
-vendor/lib/libOmxVideoDSMode.so;DISABLE_CHECKELF
-vendor/lib/libOmxVpp.so;DISABLE_CHECKELF
-vendor/lib/libOmxWmaDec.so
-vendor/lib/libdsd2pcm.so
 
 # Peripheral manager
 vendor/bin/pm-proxy
