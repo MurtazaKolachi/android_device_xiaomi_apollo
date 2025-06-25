@@ -80,7 +80,9 @@ BOARD_INCLUDE_DTB_IN_BOOTIMG := true
 BOARD_KERNEL_SEPARATED_DTBO := true
 BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
 TARGET_KERNEL_SOURCE := kernel/xiaomi/apollo
-TARGET_KERNEL_CONFIG := vendor/apollo_defconfig
+TARGET_KERNEL_CONFIG := \
+    apollo_defconfig \
+    vendor/debugfs.config
 
 # Kernel Clang Flags
 KERNEL_CC := CC=clang
