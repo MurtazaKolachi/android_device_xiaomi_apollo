@@ -73,10 +73,8 @@ BOARD_KERNEL_SEPARATED_DTBO := true
 BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
 TARGET_KERNEL_SOURCE := kernel/xiaomi/apollo
 TARGET_KERNEL_CONFIG := \
-    vendor/kona-perf_defconfig \
-    vendor/debugfs.config \
-    vendor/xiaomi/sm8250-common.config \
-    vendor/xiaomi/apollo.config
+    apollo_defconfig \
+    vendor/debugfs.config
 
 # Kernel Clang Flags
 KERNEL_CC := CC=clang
