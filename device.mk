@@ -83,6 +83,12 @@ PRODUCT_DEXPREOPT_SPEED_APPS += \
     Settings \
     SystemUI
 
+
+# Enable adpf cpu hint session for SurfaceFlinger and HWUI
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+    debug.sf.enable_adpf_cpu_hint=true \
+    debug.hwui.use_hint_manager=true
+
 # Audio
 PRODUCT_PACKAGES += \
     android.hardware.audio@6.0-impl \
