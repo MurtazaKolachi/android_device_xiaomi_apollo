@@ -18,8 +18,6 @@ RISING_MAINTAINER="Murtaza Kolachi"
 
 # Gms 
 WITH_GMS := true
-TARGET_CORE_GMS := true
-TARGET_USES_PICO_GAPPS := true
 
 # Ship Pixel Launcher
 TARGET_DEFAULT_PIXEL_LAUNCHER := true
