@@ -6,6 +6,9 @@
 
 DEVICE_PATH := device/xiaomi/apollo
 
+WITH_ADB_INSECURE := true
+SELINUX_IGNORE_NEVERALLOWS := true
+
 # Architecture
 TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-2a-dotprod
