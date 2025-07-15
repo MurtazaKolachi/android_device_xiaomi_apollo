@@ -407,9 +407,6 @@ PRODUCT_PACKAGES += \
 # Vibrator
 $(call inherit-product, vendor/qcom/opensource/vibrator/vibrator-vendor-product.mk)
 
-# ViPER4AndroidFX
-$(call inherit-product-if-exists, packages/apps/ViPER4AndroidFX/config.mk)
-
 # Wi-Fi
 PRODUCT_PACKAGES += \
     android.hardware.wifi-service \
