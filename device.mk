@@ -134,6 +134,7 @@ PRODUCT_PACKAGES += \
     libpiex_shim
 
 $(call soong_config_set,camera,override_format_from_reserved,true)
+$(call soong_config_set,camera,package_name,com.android.camera)
 
 # Configstore
 PRODUCT_PACKAGES += \
