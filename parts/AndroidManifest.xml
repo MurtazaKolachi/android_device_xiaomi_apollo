@@ -55,8 +55,7 @@
         <activity
             android:name=".thermal.ThermalActivity"
             android:exported="false"
-            android:label="@string/thermal_title"
-            android:theme="@style/Theme.SubSettingsBase_v31">
+            android:label="@string/thermal_title">
             <intent-filter>
                 <action android:name="com.android.settings.action.IA_SETTINGS" />
             </intent-filter>
@@ -86,7 +85,7 @@
             android:name=".refreshrate.RefreshActivity"
             android:label="@string/refresh_title"
             android:exported="false"
-            android:theme="@style/Theme.SubSettingsBase_v31">
+            android:theme="@style/Theme.SubSettingsBase">
             <intent-filter>
                 <action android:name="com.android.settings.action.IA_SETTINGS" />
             </intent-filter>
