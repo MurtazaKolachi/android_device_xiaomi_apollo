@@ -46,9 +46,6 @@ ro.vendor.use_data_netmgrd=true
 ro.vold.umsdirtyratio=20
 power.saving.mode=1
 
-# WFD
-vendor.wfdservice64=enable
-
 # Thermal
 vendor.sys.thermal.data.path=/data/vendor/thermal/
 
