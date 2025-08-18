@@ -8,19 +8,31 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
-# Inherit some common Lineage stuff.
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+# Inherit some common Cherish stuff.
+$(call inherit-product, vendor/cherish/config/common_full_phone.mk)
 
 # Inherit from apollo device
 $(call inherit-product, device/xiaomi/apollo/device.mk)
 
-PRODUCT_NAME := lineage_apollo
+PRODUCT_NAME := cherish_apollo
 PRODUCT_DEVICE := apollo
 PRODUCT_MANUFACTURER := Xiaomi
 PRODUCT_BRAND := Xiaomi
 PRODUCT_MODEL := Xiaomi Mi 10T
 
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
+
+# Inherit some props from Cherish
+CHERISH_BUILD_TYPE := UNOFFICIAL
+CHERISH_MAINTAINER := Murtaza Kolachi
+CHERISH_CHIPSET := SM8250
+CHERISH_BATTERY := 5000mAh
+CHERISH_DISPLAY := 1080x2400
+
+# Inherit some common device props
+TARGET_FACE_UNLOCK_SUPPORTED := true
+TARGET_SUPPORTS_CALL_RECORDING := true
+TARGET_SUPPORTS_GOOGLE_RECORDER := true
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
     BuildDesc="apollo_global-user 12 RKQ1.211001.001 V14.0.4.0.SJDMIXM release-keys"
