@@ -35,7 +35,7 @@ ro.vendor.qti.core_ctl_min_cpu=2
 
 # Radio
 persist.vendor.radio.report_codec=1
-ro.telephony.default_network=33,33
+ro.telephony.default_network=26,26
 
 # RIL Powersaving
 persist.radio.add_power_save=1
