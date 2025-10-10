@@ -241,9 +241,6 @@ persist.vendor.cp.taper_term_mv=7000
 persist.vendor.cp.fcc_main_ua=400000
 persist.vendor.cp.qc3p5_vfloat_offset_uv=110000
 
-# IMS
-persist.radio.VT_HYBRID_ENABLE=1
-
 # Keystore
 ro.hardware.keystore_desede=true
 
@@ -293,7 +290,6 @@ persist.vendor.radio.rat_on=combine
 persist.vendor.radio.redir_party_num=1
 persist.vendor.radio.sib16_support=1
 ro.com.android.dataroaming=true
-ro.telephony.default_network=26,26
 
 # Refresh Rate
 ro.surface_flinger.set_display_power_timer_ms=1000
