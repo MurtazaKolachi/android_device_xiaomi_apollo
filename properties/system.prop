@@ -21,6 +21,7 @@ persist.vendor.dpm.feature=1
 ro.vendor.qti.va_aosp.support=1
 
 # IMS
+persist.radio.VT_HYBRID_ENABLE=1
 persist.dbg.volte_avail_ovr=1
 persist.dbg.vt_avail_ovr=1
 persist.dbg.wfc_avail_ovr=1
@@ -34,6 +35,7 @@ ro.vendor.qti.core_ctl_min_cpu=2
 
 # Radio
 persist.vendor.radio.report_codec=1
+ro.telephony.default_network=26,26
 
 # RIL Powersaving
 persist.radio.add_power_save=1
