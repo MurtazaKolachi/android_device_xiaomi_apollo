@@ -242,7 +242,22 @@ SPAMMY_LOG_TAGS := \
     libsensor-ssccalapi \
     sensors \
     vendor.qti.hardware.display.composer-service \
-    vendor.xiaomi.sensor.citsensorservice@2.0-service
+    vendor.xiaomi.sensor.citsensorservice@2.0-service \
+    ActivityTaskManager \
+    ActivityManager \
+    ServiceTrackerHelper \
+    JobScheduler.Quota \
+    JobScheduler.JobStatus \
+    Biometrics/AuthenticationClient \
+    FingerprintAuthenticationClient \
+    AuthenticationPolicyService \
+    BiometricLogger \
+    BiometricFrameworkStatsLogger \
+    BiometricStateCallback \
+    BiometricScheduler \
+    BiometricSchedulerOperation \
+    GestureAvailabilityTracker \
+    AuthSessionCoordinator
 
 ifneq ($(TARGET_BUILD_VARIANT),eng)
 PRODUCT_VENDOR_PROPERTIES += \
