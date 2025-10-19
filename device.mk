@@ -206,14 +206,12 @@ $(call soong_config_set,xiaomi_kona,variant_lib,//$(LOCAL_PATH):libvariant_xiaom
 
 # Input
 PRODUCT_PACKAGES += \
-    Xiaomi_Smart_Pen_Keyboard.kl \
     kona-mtp-snd-card_Button_Jack.kl \
     uinput-fortsense.kl \
     uinput-fpc.kl \
     uinput-goodix.kl
 
 PRODUCT_PACKAGES += \
-    Xiaomi_Keyboard.idc \
     uinput-fortsense.idc \
     uinput-fpc.idc \
     uinput-goodix.idc
