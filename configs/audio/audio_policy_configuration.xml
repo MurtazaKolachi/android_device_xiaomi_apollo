@@ -391,11 +391,11 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
                 <!-- Custom Bluetooth Routes Declaration for Dolby Processing -->
                 <route type="mix" sink="BT A2DP Out"
-                       sources="primary output,deep_buffer,compressed_offload,voip_rx"/>
+                       sources="primary output,deep_buffer,direct_pcm,compressed_offload,voip_rx"/>
                 <route type="mix" sink="BT A2DP Headphones"
-                       sources="primary output,deep_buffer,compressed_offload,voip_rx"/>
+                       sources="primary output,deep_buffer,direct_pcm,compressed_offload,voip_rx"/>
                 <route type="mix" sink="BT A2DP Speaker"
-                       sources="primary output,deep_buffer,compressed_offload,voip_rx"/>
+                       sources="primary output,deep_buffer,direct_pcm,compressed_offload,voip_rx"/>
             </routes>
 
         </module>
@@ -425,6 +425,9 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
         <!-- Bluetooth Audio HAL -->
         <xi:include href="/vendor/etc/bluetooth_audio_policy_configuration.xml"/>
+
+        <!-- Bluetooth Audio HAL for hearing aid -->
+        <xi:include href="/vendor/etc/hearing_aid_audio_policy_configuration.xml"/>
 
     </modules>
     <!-- End of Modules section -->
