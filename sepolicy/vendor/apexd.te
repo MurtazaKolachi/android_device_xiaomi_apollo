@@ -1,0 +1,2 @@
+# Allow apexd to use the kill capability for internal management (e.g., cleaning up its own children)
+allow apexd self:capability kill;

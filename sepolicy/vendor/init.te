@@ -3,3 +3,6 @@ allow init same_process_hal_file:file execute;
 set_prop(init, vendor_fingerprint_prop);
 
 allow init adsprpcd_file:file mounton;
+
+# Allow init to unmount the vendor spunvm filesystem
+allow init vendor_spunvm_file:filesystem unmount;
