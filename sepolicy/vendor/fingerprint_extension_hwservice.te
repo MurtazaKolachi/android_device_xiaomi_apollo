@@ -1,0 +1,2 @@
+# Define the hwservice type with correct attributes
+type fingerprint_extension_hwservice, hwservice_manager_type;
