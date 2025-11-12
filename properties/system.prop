@@ -1,3 +1,11 @@
+# Audio
+aaudio.hw_burst_min_usec=2000
+aaudio.mmap_exclusive_policy=2
+aaudio.mmap_policy=1
+audio.deep_buffer.media=true
+audio.offload.buffer.size.kb=32
+audio.offload.gapless.enabled=true
+
 # Camera
 camera.disable_zsl_mode=true
 vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.android.camera,org.lineageos.aperture,org.lineageos.aperture.dev
