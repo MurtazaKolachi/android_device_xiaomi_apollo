@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2020-2022 The LineageOS Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <!-- Thermal Profiles -->
+    <string name="thermal_title">Тепловые профили</string>
+    <string name="thermal_summary">Настроить профили тепловые приложений для оптимальной производительности</string>
+    <string name="thermal_default">По умолчанию</string>
+    <string name="thermal_benchmark">Бенчмарк</string>
+    <string name="thermal_browser">Браузер</string>
+    <string name="thermal_camera">Камера</string>
+    <string name="thermal_dialer">Телефон</string>
+    <string name="thermal_gaming">Игра</string>
+    <string name="thermal_streaming">Потоковое воспроизведение</string>
+
+    <!-- Refresh Rate Settings -->
+    <string name="refresh_rate_tile_title">Частота обновления</string>
+
+    <!-- Per-app refresh rate -->
+    <string name="refresh_title">Частота обновления приложений</string>
+    <string name="refresh_summary">Установите максимальную частоту обновления для отдельных приложений</string>
+    <string name="refresh_default">По умолчанию</string>
+    <string name="refresh_standard">60Гц</string>
+    <string name="refresh_medium">90Гц</string>
+    <string name="refresh_high">120Гц</string>
+    <string name="refresh_extreme">144Гц</string>
+
+    <!-- Touch Control Settings -->
+    <string name="touch_control_title">Оптимизация сенсорного экрана</string>
+    <string name="touch_game_mode_title">Включить игровой режим</string>
+    <string name="touch_response_title">Отклик сенсора</string>
+    <string name="touch_response_summary">Управляет откликом на касание</string>
+    <string name="touch_sensitivity_title">Чувствительность касания</string>
+    <string name="touch_sensitivity_summary">Контролирует чувствительность при повторяющихся нажатиях</string>
+    <string name="touch_resistant_title">Область, устойчивая к прикосновениям</string>
+    <string name="touch_resistant_summary">Снижает чувствительность по краям для предотвращения случайных нажатий</string>
+
+    <!-- Clear Speaker -->
+    <string name="clear_speaker_title">Очистка динамика</string>
+    <string name="clear_speaker_summary">Воспроизвести 30-секундный сигнал для очистки динамика</string>
+    <string name="clear_speaker_description">"Запустите эту функцию один или два раза, если обнаружите, что ваш динамик загрязнился. Установите максимальную громкость.
+
+        Если динамик загрязнен сильно, запустите функцию 2-5 раз, одновременно встряхивая ваше устройство, направив динамиком вниз."</string>
+
+    <!-- High Touch Polling -->
+    <string name="htsr_title">Чувствительность к прикосновениям</string>
+    <string name="htsr_enable_title">Увеличить чувствительность прикосновения</string>
+    <string name="htsr_enable_summary">Увеличить частоту опроса сенсора для уменьшения задержки</string>
+</resources>
